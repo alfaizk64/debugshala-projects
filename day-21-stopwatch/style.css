@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.conatiner{
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#stopWatch{
+    color: white;
+    font-size: 4rem;
+    padding: 3rem;
+}
+button{
+    background-color: #ff0000;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: none;
+    margin: 30px;
+    border-radius: 50px;
+    transition: all 0.5s;
+}
+button:hover{
+    background-color: rgb(50, 50, 50);
+    color: white;
+
+}
