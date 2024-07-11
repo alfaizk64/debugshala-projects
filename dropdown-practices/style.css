@@ -92,9 +92,12 @@
  .dropdown_content li:hover{
     background-color: var(--hover-bg-color);
  }
- .dropdown:hover .dropdown_content{
-    display: block;
+ .dropdown_content.active{
+   display: block;
  }
+ /* .dropdown:hover .dropdown_content{
+    display: block;
+ } */
  
  .nav_main_menu .sub_dropdown_content{
     display: none;
@@ -108,9 +111,9 @@
     animation: slidUp .3s;
     box-shadow: var(--shadow-1);
 }
-.sub_dropdown:hover .sub_dropdown_content{
+/* .sub_dropdown:hover .sub_dropdown_content{
     display: block;
-}
+} */
  @keyframes slidUp {
     from{
         margin-top: 20px;
@@ -139,4 +142,17 @@
 }
 .btn:hover{
     opacity: 0.8;
+}
+main{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 80vh;
+   color: var(--bg-color);
+}
+
+main p{
+   font-size: 50px;
+   font-weight: 600;
+   text-align: center;
 }
