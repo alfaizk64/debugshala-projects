@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     rel="stylesheet"
 />
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden ">
     <div class=" h-5 w-5 rounded-full bg-black fixed z-[9999]" id="cursor"></div>
     <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
         <img class="w-full " src="/assets/images/header-bg-color.png" alt="">
@@ -30,12 +30,12 @@
                         <!-- <img class="w-3 hover:text-white" src="/assets/images/arrow-icon.png " alt=""> -->
                         <i class="ri-arrow-right-up-line text-2xl hover:text-white"></i>
                     </a>
-                      <button id="menu-open" class=" ml-3 block">
+                      <button id="menu-open" class="md:hidden ml-3 block">
                          <img src="/assets/images/menu-black.png" class="w-6" alt="">
                       </button>
              </div>
              <!-- mobile  nav menu -->
-              <ul id="sideMenu" class="flex flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen  transition duration-500 ease-in-out">
+              <ul id="sideMenu" class=" md:hidden flex flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen  transition duration-500 ease-in-out">
                 <div id="menu-close" class="absolute  right-6 top-6 bg-white shadow-lg p-2 rounded-full" >
                     <img src="/assets/images/close-black.png" class="cursor-pointer w-5 " alt="">
                 </div>
@@ -50,10 +50,10 @@
       <div class="w-11/12 max-w-3xl text-center mx-auto h-screen  flex flex-col items-center justify-center gap-4">
             <img src="/assets/images/profile_image.jpeg" class="rounded-full w-32 h-32 object-cover object-top" alt="">
             <h3 class="flex items-center gap-2 text-xl md:text-2xl font-Montserrat font-bold">Hi I,m Alfaiz Khan <img src="/assets/images/hand-icon.png" alt=""></h3>
-            <h1 class=" fwd text-3xl sm:text-6xl lg:text-[3.75rem] relative font-Montserrat">
+            <h1 class=" fwd text-3xl md:text-5xl lg:text-[3.75rem] relative font-Montserrat">
                 Frontend Web Developer
             </h1>
-            <h2 class="fsd text-3xl sm:text-6xl relative lg:text-[3.75rem] font-Montserrat">
+            <h2 class="fsd text-3xl md:text-5xl relative lg:text-[3.75rem] font-Montserrat">
                 Full Stack Developer
             </h2>
       
@@ -139,6 +139,63 @@
              </div>
          </div>
       </section>
+      <!-- section services -->
+       <section class="scroll-mt-20" id="services">
+             
+         <div class="w-full px-[12%] py-10 ">
+            <h4 class=" text-center mb-2 text-5xl font-Montserrat font-bold">What i offer</h4>
+            <h2 class=" text-center text-5xl font-Montserrat"> My Services</h2>
+            <p class="text-center text-lg max-w-2xl mx-auto mt-5 mb-12">I'm a software developer and here is my portfolio website.
+                Here you'll Know about my journey as a software developer.</p>
+                <div class="grid grid-cols-4 gap-6 my-10">
+                         <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 ">
+                            <img src="/assets/images/web-icon.png" class="w-10" alt="">
+                            <h3 class="my-4 text-lg font-Inter text-gray-700">Web Design</h3>
+                            <p class="text-gray-600 text-sm font-Open-Sans leading-5">I design and develop responsive and user-friendly websites.</p>
+                            <a href="" class="flex items-center text-sm mt-5 gap-2">Read More <img src="/assets/images/right-arrow.png" class="w-4" alt=""></a>
+                            
+                         </div>
+                         <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 ">
+                            <img src="/assets/images/mobile-icon.png" class="w-10" alt="">
+                            <h3 class="my-4 text-lg font-Inter text-gray-700">Mobile App</h3>
+                            <p class="text-gray-600 text-sm font-Open-Sans leading-5">I design and develop responsive and user-friendly websites.</p>
+                            <a href="" class="flex items-center text-sm mt-5 gap-2">Read More <img src="/assets/images/right-arrow.png" class="w-4" alt=""></a>
+                            
+                         </div>
+                         <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 ">
+                            <img src="/assets/images/ui-icon.png" class="w-10" alt="">
+                            <h3 class="my-4 text-lg font-Inter text-gray-700">UI/UX Design</h3>
+                            <p class="text-gray-600 text-sm font-Open-Sans leading-5">I design and develop responsive and user-friendly websites.</p>
+                            <a href="" class="flex items-center text-sm mt-5 gap-2">Read More <img src="/assets/images/right-arrow.png" class="w-4" alt=""></a>
+                            
+                         </div>
+                         <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-[4px_4px_0_#000] cursor-pointer hover:bg-[#fcf4ff] hover:-translate-y-1 duration-500 ">
+                            <img src="/assets/images/graphics-icon.png" class="w-10" alt="">
+                            <h3 class="my-4 text-lg font-Inter text-gray-700">Graphics Design</h3>
+                            <p class="text-gray-600 text-sm font-Open-Sans leading-5">I design and develop responsive and user-friendly websites.</p>
+                            <a href="" class="flex items-center text-sm mt-5 gap-2">Read More <img src="/assets/images/right-arrow.png" class="w-4" alt=""></a>
+                            
+                         </div>
+                </div>
+         </div>
+           
+       </section>
+
+       <!-- my work section -->
+        <section class="scroll-mt-20" id="work">
+            <div class="w-full px-[12%] py-10 ">
+                <h4 class=" text-center mb-2 text-5xl font-Montserrat font-bold">My Portfolio</h4>
+                <h2 class=" text-center text-5xl font-Montserrat"> My Latest Work</h2>
+                <p class="text-center text-lg max-w-2xl mx-auto mt-5 mb-12">Welcome to my Web development portfolio! Explore a Collection showcasing my experties in front-end development.</p>
+                <div class="grid grid-cols-4 gap-5 my-10">
+                         <div class="aspect-square bg-[url('/assets/images/work-1.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+                                     <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex justify-center items-center duration-500 group-hover:bottom-7">
+
+                                     </div>
+                         </div>
+                </div>
+             </div>
+        </section>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script> 
