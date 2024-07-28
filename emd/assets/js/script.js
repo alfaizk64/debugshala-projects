@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   formClose.addEventListener("click", () => {
     formContainer.classList.add("hidden");
     overlay.classList.remove("active");
+    gridContainer.classList.remove("hidden")
   });
   employeeForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -30,16 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
       Sales: [],
       Technical: [],
       HR: [],
-      Teli: [],
+      Telecalling : [],
     };
 
     employees[department].push({ name, salary, designation, email });
     localStorage.setItem("employees", JSON.stringify(employees));
 
-    displayEmployees();
+    // displayEmployees();
     employeeForm.reset();
     formContainer.classList.add("hidden");
     gridContainer.classList.remove("hidden");
+    overlay.classList.remove("active")
   });
 
   function displayEmployees() {
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
       Sales: [],
       Technical: [],
       HR: [],
-      Teli: [],
+      Telecalling : [],
     };
 
     document
@@ -97,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // to redirect to new page
 function redirectToDepartment(department) {
+  
   window.location.href = `department.html?department=${department}`;
 }
 

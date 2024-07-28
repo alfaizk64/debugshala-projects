@@ -75,7 +75,7 @@ nav {
 /* ----------------------------------------------------- */
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #formContainer {
@@ -152,6 +152,7 @@ select {
     color: white;
 }
 .department {
+    text-align: center;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 1em;
@@ -216,7 +217,10 @@ select {
 .profile-card .info {
     margin-bottom: 0.5em;
 }
-
+#departmentHeader{
+    text-align: center;
+    margin-top: 25px;
+}
 .info label {
     font-weight: bold;
 }
@@ -261,3 +265,4 @@ select {
     top: 10px;
     cursor: pointer;
 }
+

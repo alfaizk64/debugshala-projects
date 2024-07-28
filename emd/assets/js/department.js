@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       Sales: [],
       Technical: [],
       HR: [],
-      Teli: [],
+      Telecalling : [],
     };
 
     const deptEmployees = employees[department] || [];
