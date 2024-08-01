@@ -102,7 +102,7 @@ main{
     margin-top: 80px;
 }
 .card_container{
-justify-content: space-between;
+justify-content: space-around;
 row-gap: 20px;
 align-items: start;
 flex-wrap: wrap;
