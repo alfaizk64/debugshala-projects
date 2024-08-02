@@ -29,6 +29,34 @@ menuClose.addEventListener("click",()=>{
   sideMenu.style.transform = 'translateX(0rem)'
   })
 
+sideMenu.addEventListener("mouseleave",()=>{
+  sideMenu.style.transform = 'translateX(0rem)'
+})
+// nav bar bg on scroll
+const navBar = document.querySelector("nav")
+const navLinks = document.querySelector("nav ul")
+
+
+window.addEventListener("scroll",()=>{
+  if(scrollY > 50){
+       navBar.classList.add('bg-white','backdrop-blur-lg','shadow-sm')
+  }else{
+    navBar.classList.remove('bg-white','backdrop-blur-lg','shadow-sm')
+    
+  }
+})
+ window.addEventListener("scroll",()=>{
+
+  if(scrollY > 50){
+    navLinks.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50')
+
+  }else{
+    navLinks.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50')
+     
+  }
+
+ })
+  
 
   // gsap nav menu
 tl.from(".logo",{
