@@ -13,6 +13,8 @@
 const sideMenu =document.getElementById("sideMenu")
 const menuOpen = document.getElementById("menu-open")
 const menuClose = document.getElementById("menu-close")
+const anchor = document.querySelectorAll(".sideMenu li a")
+
 
 let tl = gsap.timeline()
 menuOpen.addEventListener("click",()=>{
@@ -32,6 +34,11 @@ menuClose.addEventListener("click",()=>{
 sideMenu.addEventListener("mouseleave",()=>{
   sideMenu.style.transform = 'translateX(0rem)'
 })
+anchor.forEach((e)=>{
+  e.addEventListener("click",()=>{
+    sideMenu.style.transform = 'translateX(0rem)'
+    })
+})
 // nav bar bg on scroll
 const navBar = document.querySelector("nav")
 const navLinks = document.querySelector("nav ul")
@@ -39,23 +46,15 @@ const navLinks = document.querySelector("nav ul")
 
 window.addEventListener("scroll",()=>{
   if(scrollY > 50){
-       navBar.classList.add('bg-white','backdrop-blur-lg','shadow-sm')
+       navBar.classList.add('bg-white','bg-opacity-50','backdrop-blur-lg','shadow-sm','dark:bg-darkTheme','dark:shadow-white/20')
+       navLinks.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50','dark:border',"dark:border-white/50",'dark:bg-transparent')  
   }else{
-    navBar.classList.remove('bg-white','backdrop-blur-lg','shadow-sm')
-    
+       navBar.classList.remove('bg-white','bg-opacity-50','backdrop-blur-lg','shadow-sm','dark:bg-darkTheme','dark:shadow-white/20')
+       navLinks.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50','dark:border',"dark:border-white/50",'dark:bg-transparent')  
+               
   }
 })
- window.addEventListener("scroll",()=>{
 
-  if(scrollY > 50){
-    navLinks.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50')
-
-  }else{
-    navLinks.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50')
-     
-  }
-
- })
   
 
   // gsap nav menu
@@ -122,4 +121,19 @@ body.addEventListener("mousemove",(mouse)=>{
   
 })
 
-// side menu animation
+// dark mode toggle
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}
+
+function toggleTheme(){
+  document.documentElement.classList.toggle('dark')
+  if (document.documentElement.classList.contains('dark')) {
+    localStorage.theme='dark'
+  }
+  else{
+    localStorage.theme='light'
+  }
+}
