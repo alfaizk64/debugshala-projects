@@ -29,7 +29,7 @@ nav {
     justify-content: space-between;
 }
 .navSection h2 {
-    font-size: 48px;
+    font-size:2rem;
 }
 .navSection ul {
     padding: 12px 22px;
@@ -137,6 +137,7 @@ select {
     gap: 1em;
     padding: 1em;
 }
+
 .submitBtn {
     padding: 12px 16px;
     background: transparent;
@@ -151,7 +152,7 @@ select {
     background-color: #45a049;
     color: white;
 }
-.department {
+/* .department {
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -167,6 +168,158 @@ select {
         0 15px 12px rgba(0, 0, 0, 0.22);
     cursor: pointer;
 }
+.department img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(0, 0, 0, 0.23);
+
+} */
+ /* Add this CSS to style.css */
+
+/* .department {
+    position: relative;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    overflow: hidden;
+  }
+  
+  .department img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .departmentInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .departmentInfo h3 {
+    margin: 0;
+  }
+  
+  .department button {
+    background-color: #45a049;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .department button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .department:hover img {
+    transform: translateY(-50px);
+  }
+  
+  .department:hover .departmentInfo {
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-50px);
+  }
+   */
+   /* department */
+   .department {
+    position: relative;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    overflow: hidden;
+    height: 300px; /* Set a fixed height for proper alignment */
+  }
+  
+  .department img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+  }
+  
+  .departmentInfo {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    transition: top 0.5s ease-in-out;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  .departmentInfo h3 {
+    margin: 0;
+    margin-top: 10px;
+  }
+  
+  .department button {
+    background-color: #45a049;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .department button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* .department:hover img {
+    transform: translateY(-150px); 
+  } */
+  
+  .department:hover .departmentInfo {
+    top: 0; /* Slide the content up */
+  }
+  /* department end */
+  
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .grid-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
 .employeeList {
     margin-top: 1em;
 }
@@ -185,17 +338,7 @@ select {
 .formContainer h2 i {
     cursor: pointer;
 }
-@media (min-width: 600px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media (min-width: 900px) {
-    .grid-container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
 
 /* Add these to styles.css */
 .profile-container {

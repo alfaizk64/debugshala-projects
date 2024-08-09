@@ -1,110 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employe Management Department</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <div class="sideMenu" id="sideMenu">
-      <i id="closeBar" class="fa-solid fa-xmark"></i>
-      <ul>
-        <li><a href="#top">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">My Work</a></li>
-        <li><a href="#contact">Contact me</a></li>
-      </ul>
-    </div>
-    <nav>
-      <div class="navSection">
-        <div>
-          <h2>EMD <span>.</span></h2>
-        </div>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Services</li>
-          <li>Contact Us</li>
-        </ul>
-        <div class="btn_group">
-          <button id="registerBtn">Register Here</button>
-          <i id="openBars" class="fa-solid fa-bars"></i>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Management Department</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <div class="sideMenu" id="sideMenu">
+    <i id="closeBar" class="fa-solid fa-xmark"></i>
+    <ul>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#Salary">Salary Transition</a></li>
+      <li><a href="#Daily">Daily Task</a></li>
+      <li><a href="#">Sign out</a></li>
+    </ul>
+  </div>
+  <nav>
+    <div class="navSection">
+      <div>
+        <h2>Employee Management Department <span>.</span></h2>
       </div>
-    </nav>
-    <div class="overlay" id="overlay" style="display: none;"></div>
-    <div id="formContainer" class="hidden formContainer">
-      <h2>
-        Register Employee <i id="formClose" class="fa-solid fa-xmark"></i>
-      </h2>
-      <form id="employeeForm">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" required />
-        </div>
-        <div class="form-group">
-          <label for="salary">Salary:</label>
-          <input type="number" id="salary" required />
-        </div>
-        <div class="form-group">
-          <label for="designation">Designation:</label>
-          <input type="text" id="designation" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" required />
-        </div>
-        <div class="form-group">
-          <label for="department">Department:</label>
-          <select id="department" required>
-            <option value="Sales">Sales</option>
-            <option value="Technical">Technical</option>
-            <option value="HR">HR</option>
-            <option value="Teli">Telecalling </option>
-          </select>
-        </div>
-        <button type="submit" class="submitBtn">Submit</button>
-      </form>
+      <div class="btn_group">
+        <button id="registerBtn">Register Here</button>
+        <i id="openBars" class="fa-solid fa-bars"></i>
+      </div>
     </div>
-    <div id="gridContainer" class="grid-container">
-      <div
-        id="salesDept"
-        class="department"
-        onclick="redirectToDepartment('Sales')"
-      >
+  </nav>
+  <div class="overlay" id="overlay" style="display: none;"></div>
+  <div id="formContainer" class="hidden formContainer">
+    <h2>
+      Register Employee <i id="formClose" class="fa-solid fa-xmark"></i>
+    </h2>
+    <form id="employeeForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+      </div>
+      <div class="form-group">
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" required />
+      </div>
+      <div class="form-group">
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+      </div>
+      <div class="form-group">
+        <label for="department">Department:</label>
+        <select id="department" required>
+          <option value="Sales">Sales</option>
+          <option value="Technical">Technical</option>
+          <option value="HR">HR</option>
+          <option value="Telecalling">Telecalling</option>
+        </select>
+      </div>
+      <button type="submit" class="submitBtn">Submit</button>
+    </form>
+  </div>
+  <div id="gridContainer" class="grid-container">
+    <div id="salesDept" class="department">
+      <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2FsZXMlMjBkZXBhcm1lbnQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D" alt="Sales Department">
+      <div class="departmentInfo">
         <h3>Sales Department</h3>
-        <div class="employeeList"></div>
+        <button onclick="redirectToDepartment('Sales')">Go to Sales</button>
       </div>
-      <div
-        id="technicalDept"
-        class="department"
-        onclick="redirectToDepartment('Technical')"
-      >
-        <h3>Technical Department</h3>
-        <div class="employeeList"></div>
-      </div>
-      <div id="hrDept" class="department" onclick="redirectToDepartment('HR')">
-        <h3>HR Department</h3>
-        <div class="employeeList"></div>
-      </div>
-      <div
-        id="teliDept"
-        class="department"
-        onclick="redirectToDepartment('Telecalling')"
-      >
-        <h3>Telecalling Department</h3>
-        <div class="employeeList"></div>
-      </div>
+      <div class="employeeList"></div>
     </div>
-    <script src="/assets/js/script.js"></script>
-  </body>
+    <div id="technicalDept" class="department">
+      <img src="https://media.istockphoto.com/id/641194956/photo/team-at-work.webp?b=1&s=170667a&w=0&k=20&c=Yr8hmxnVRLsyhHwWvV0hc_teNlR6hnRoIigPflNdnOI=" alt="Technical Department">
+      <div class="departmentInfo">
+        <h3>Technical Department</h3>
+        <button onclick="redirectToDepartment('Technical')">Go to Technical</button>
+      </div>
+      <div class="employeeList"></div>
+    </div>
+    <div id="hrDept" class="department">
+      <img src="https://media.istockphoto.com/id/1325421270/photo/businessman-touching-to-virtual-screen-with-infographic-and-hr-wording-human-development-and.jpg?s=1024x1024&w=is&k=20&c=kcDVFKZcyu6nDSlDgZij8uScovQTl53Qa_0DuWm8zzc=" alt="HR Department">
+      <div class="departmentInfo">
+        <h3>HR Department</h3>
+        <button onclick="redirectToDepartment('HR')">Go to HR</button>
+      </div>
+      <div class="employeeList"></div>
+    </div>
+    <div id="teleDept" class="department">
+      <img src="https://media.istockphoto.com/id/1364269973/photo/call-center-agent-with-headset-working-on-support-hotline-in-modern-office.webp?b=1&s=170667a&w=0&k=20&c=UBJTVZckXzNF9RIyJjFu1nb4sxAeNdMxDvn-0hF4wfM=" alt="Telecalling Department">
+      <div class="departmentInfo">
+        <h3>Telecalling Department</h3>
+        <button onclick="redirectToDepartment('Telecalling')">Go to Telecalling</button>
+      </div>
+      <div class="employeeList"></div>
+    </div>
+  </div>
+  <script src="/assets/js/script.js"></script>
+</body>
 </html>

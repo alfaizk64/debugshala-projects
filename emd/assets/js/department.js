@@ -1,5 +1,3 @@
-// department.js
-
 document.addEventListener("DOMContentLoaded", function () {
   const departmentTitle = document.getElementById("departmentTitle");
   const departmentHeader = document.getElementById("departmentHeader");
@@ -10,55 +8,68 @@ document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const department = urlParams.get("department");
 
-  // const urlParams = new URLSearchParams(window.location.search);
-  // const department = urlParams.get('department');
-
-  // console.log(department); //This will log 'HR' if the URL is department.html?department=HR
-  if (!department) {
-    window.location.href = "index.html";
-  }
-
+  // Set the page title and header based on the department
   departmentTitle.textContent = `${department} Department`;
   departmentHeader.textContent = `${department} Department`;
 
-  function displayEmployees() {
-    let employees = JSON.parse(localStorage.getItem("employees")) || {
-      Sales: [],
-      Technical: [],
-      HR: [],
-      Telecalling : [],
-    };
+  // Get employees from localStorage
+  const employees = JSON.parse(localStorage.getItem("employees")) || {
+    Sales: [],
+    Technical: [],
+    HR: [],
+    Telecalling: [],
+  };
 
-    const deptEmployees = employees[department] || [];
-
-    deptEmployees.forEach((employee) => {
-      const div = document.createElement("div");
-      div.classList.add("profile-card");
+  // Display employees for the selected department
+  if (employees[department] && employees[department].length > 0) {
+    employees[department].forEach((employee) => {
+      const profileCard = document.createElement("div");
+      profileCard.classList.add("profile-card");
 
       const nameDiv = document.createElement("div");
-      nameDiv.innerHTML = `<label>Name:</label> ${employee.name}`;
       nameDiv.classList.add("info");
+      nameDiv.innerHTML = `<label>Name:</label> ${employee.name}`;
 
       const salaryDiv = document.createElement("div");
-      salaryDiv.innerHTML = `<label>Salary:</label> ${employee.salary}`;
       salaryDiv.classList.add("info");
-      
-      const emailDiv = document.createElement("div");
-      emailDiv.innerHTML = `<label>Email:</label> ${employee.email}`;
-      emailDiv.classList.add("info");
+      salaryDiv.innerHTML = `<label>Salary:</label> ${employee.salary}`;
 
       const designationDiv = document.createElement("div");
-      designationDiv.innerHTML = `<label>Designation:</label> ${employee.designation}`;
       designationDiv.classList.add("info");
+      designationDiv.innerHTML = `<label>Designation:</label> ${employee.designation}`;
 
-      div.appendChild(nameDiv);
-      div.appendChild(salaryDiv);
-      div.appendChild(emailDiv)
-      div.appendChild(designationDiv);
+      const emailDiv = document.createElement("div");
+      emailDiv.classList.add("info");
+      emailDiv.innerHTML = `<label>Email:</label> ${employee.email}`;
+      
+      const actionsDiv = document.createElement("div");
+      actionsDiv.classList.add("actions");
+      
+      const updateIcon = document.createElement("i");
+      updateIcon.classList.add("fas", "fa-sync-alt");
+      
+      const editIcon = document.createElement("i");
+      editIcon.classList.add("fas", "fa-edit");
+      
+      const deleteIcon = document.createElement("i");
+      deleteIcon.classList.add("fas", "fa-trash-alt");
+      
+      actionsDiv.appendChild(updateIcon);
+      actionsDiv.appendChild(editIcon);
+      actionsDiv.appendChild(deleteIcon);
+      
+      
+      
+      profileCard.appendChild(nameDiv);
+      profileCard.appendChild(salaryDiv);
+      profileCard.appendChild(designationDiv);
+      profileCard.appendChild(emailDiv);
+      profileCard.appendChild(actionsDiv);
+      
 
-      employeeProfileContainer.appendChild(div);
+      employeeProfileContainer.appendChild(profileCard);
     });
+  } else {
+    employeeProfileContainer.innerHTML = `<p>No employees found in the ${department} Department.</p>`;
   }
-
-  displayEmployees();
 });
