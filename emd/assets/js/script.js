@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const designation = document.getElementById("designation").value;
     const department = document.getElementById("department").value;
     const email = document.getElementById("email").value;
+    const selectedGender = document.querySelector('input[name="gender"]:checked').value;
+    
+    
 
     let employees = JSON.parse(localStorage.getItem("employees")) || {
       Sales: [],
@@ -34,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       Telecalling : [],
     };
 
-    employees[department].push({ name, salary, designation, email });
+    employees[department].push({ name, salary, designation, email,selectedGender });
     localStorage.setItem("employees", JSON.stringify(employees));
 
     // displayEmployees();

@@ -12,6 +12,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  
 </head>
 <body>
   <div class="sideMenu" id="sideMenu">
@@ -64,7 +65,20 @@
           <option value="HR">HR</option>
           <option value="Telecalling">Telecalling</option>
         </select>
+    
       </div>
+    <!-- gender  -->
+    <div class="form-group">
+      <label>Gender:</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="gender" value="Male" required /> Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="Female" required /> Female
+        </label>
+      </div>
+    </div>
       <button type="submit" class="submitBtn">Submit</button>
     </form>
   </div>
