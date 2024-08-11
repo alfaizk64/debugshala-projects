@@ -57,8 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Create email element
       const genderDiv = document.createElement("div");
-      emailDiv.classList.add("info");
-      emailDiv.innerHTML = `<label>Gender:</label> ${employee.selectedGender}`;
+      genderDiv.classList.add("info");
+      genderDiv.innerHTML = `<label>Gender:</label> ${employee.selectedGender}`;
 
       // Create actions container
       const actionsDiv = document.createElement("div");
@@ -67,23 +67,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // Create edit icon
       const editIcon = document.createElement("i");
       editIcon.classList.add("fas", "fa-edit");
-      // editIcon.addEventListener("click", () => {
-      //   // Edit functionality (replace with your implementation)
-      //   console.log("Edit clicked for", employee.name);
-      // });
-
+   
       // Create update icon
       editIcon.addEventListener("click", () => {
+        overlay.classList.add("active");
+        formContainer.classList.remove("hidden");
         // Update functionality
         const index = employees[department].indexOf(employee);
         if (index !== -1) {
-          // Prompt the user to enter new data (replace with your preferred method)
-          // const newName = prompt("Enter new name:", employee.name);
-          // const newSalary = prompt("Enter new salary:", employee.salary);
-          // const newDesignation = prompt("Enter new designation:", employee.designation);
-          // const newEmail = prompt("Enter new email:", employee.email);
-          // const newGender = prompt("Enter new gender:", employee.selectedGender);
-          // get form input for updating the previous value in input field
           let name = document.getElementById("name");
           let salary = document.getElementById("salary");
           let designation = document.getElementById("designation");
@@ -93,50 +84,67 @@ document.addEventListener("DOMContentLoaded", function () {
             'input[name="gender"]:checked'
           );
 
-          overlay.classList.add("active");
-          formContainer.classList.remove("hidden");
-
           name.value = employee.name;
           salary.value = employee.salary;
           designation.value = employee.designation;
           department.value = employee.department;
           email.value = employee.email;
-          selectedGender.value = employee.selectedGender;
-          // Update the employee object with the new values
-          // const newName = document.getElementById("name").value;
-          // const newSalary = document.getElementById("salary").value;
-          // const newDesignation = document.getElementById("designation").value;
-          // const newEmail = document.getElementById("email").value;
-          // const newGender = document.querySelector('input[name="gender"]:checked').value;
-          // Update employee object with new data (if provided)
-          if (newName) {
-            employee.name = newName;
-          }
-          if (newSalary) {
-            employee.salary = newSalary;
-          }
-          if (newDesignation) {
-            employee.designation = newDesignation;
-          }
-          if (newDepartment) {
-            employee.department = newDepartment;
-          }
-          if (newEmail) {
-            employee.email = newEmail;
-          }
-          if (newGender) {
-            employee.selectedGender = newGender;
-          }
+          // selectedGender.value = employee.selectedGender;
 
-          // Update localStorage
-          localStorage.setItem("employees", JSON.stringify(employees));
+          const employeeForm = document.getElementById("employeeForm");
+          employeeForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const salary = document.getElementById("salary").value;
+            const designation = document.getElementById("designation").value;
+            const department = document.getElementById("department").value;
+            const email = document.getElementById("email").value;
+            const selectedGender = document.querySelector(
+              'input[name="gender"]:checked'
+            ).value;
+            console.log(name);
+            console.log(salary);
+            console.log(designation);
+            console.log(department);
+            console.log(email);
+            console.log(selectedGender);
+            if (name) {
+              employee.name = name;
+            }
+            if (salary) {
+              employee.salary = salary;
+            }
+            if (designation) {
+              employee.designation = designation;
+            }
+            if (department) {
+              employee.department = department;
+            }
+            if (email) {
+              employee.email = email;
+            }
+            if (selectedGender) {
+              employee.selectedGender = selectedGender;
+            }
+            // Update localStorage
+            localStorage.setItem("employees", JSON.stringify(employees));
 
-          // Update displayed information on the card (optional)
-          nameDiv.innerHTML = `<label>Name:</label> ${employee.name}`;
-          salaryDiv.innerHTML = `<label>Salary:</label> ${employee.salary}`;
-          designationDiv.innerHTML = `<label>Designation:</label> ${employee.designation}`;
-          emailDiv.innerHTML = `<label>Email:</label> ${employee.email}`;
-          genderDiv.innerHTML = `<label>Gender:</label> ${employee.selectedGender}`;
+            // Update displayed information on the card (optional)
+            nameDiv.innerHTML = `<label>Name:</label> ${employee.name}`;
+            salaryDiv.innerHTML = `<label>Salary:</label> ${employee.salary}`;
+            designationDiv.innerHTML = `<label>Designation:</label> ${employee.designation}`;
+            emailDiv.innerHTML = `<label>Email:</label> ${employee.email}`;
+            // genderDiv.innerHTML = `<label>Gender:</label> ${employee.selectedGender}`;
+            overlay.classList.remove("active");
+            formContainer.classList.add("hidden");
+          });
+
+          // form close
+          let formClose = document.getElementById("formClose");
+          formClose.addEventListener("click", () => {
+            formContainer.classList.add("hidden");
+            overlay.classList.remove("active");
+          });
         } else {
           console.error("Employee not found for update!");
         }
@@ -161,12 +169,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       actionsDiv.appendChild(editIcon);
       actionsDiv.appendChild(deleteIcon);
-
       profileCard.appendChild(imgDiv);
       profileCard.appendChild(nameDiv);
       profileCard.appendChild(salaryDiv);
-      profileCard.appendChild(designationDiv);
       profileCard.appendChild(emailDiv);
+      profileCard.appendChild(designationDiv);
       profileCard.appendChild(genderDiv);
       profileCard.appendChild(actionsDiv);
 

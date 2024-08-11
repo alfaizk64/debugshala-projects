@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const formContainer = document.getElementById("formContainer");
   const gridContainer = document.getElementById("gridContainer");
   const employeeForm = document.getElementById("employeeForm");
- const overlay =document.getElementById("overlay")
+  const overlay = document.getElementById("overlay");
 
   registerBtn.addEventListener("click", function () {
     gridContainer.classList.add("hidden");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   formClose.addEventListener("click", () => {
     formContainer.classList.add("hidden");
     overlay.classList.remove("active");
-    gridContainer.classList.remove("hidden")
+    gridContainer.classList.remove("hidden");
   });
   employeeForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -26,25 +26,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const designation = document.getElementById("designation").value;
     const department = document.getElementById("department").value;
     const email = document.getElementById("email").value;
-    const selectedGender = document.querySelector('input[name="gender"]:checked').value;
-    
-    
+    const selectedGender = document.querySelector(
+      'input[name="gender"]:checked'
+    ).value;
 
     let employees = JSON.parse(localStorage.getItem("employees")) || {
       Sales: [],
       Technical: [],
       HR: [],
-      Telecalling : [],
+      Telecalling: [],
     };
 
-    employees[department].push({ name, salary, designation, email,selectedGender });
+    employees[department].push({
+      name,
+      salary,
+      designation,
+      email,
+      selectedGender,
+    });
     localStorage.setItem("employees", JSON.stringify(employees));
 
     // displayEmployees();
     employeeForm.reset();
     formContainer.classList.add("hidden");
     gridContainer.classList.remove("hidden");
-    overlay.classList.remove("active")
+    overlay.classList.remove("active");
   });
 
   function displayEmployees() {
@@ -52,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
       Sales: [],
       Technical: [],
       HR: [],
-      Telecalling : [],
+      Telecalling: [],
     };
 
     document
@@ -87,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div.appendChild(nameDiv);
         div.appendChild(salaryDiv);
         div.appendChild(designationDiv);
-        div.appendChild(emailDiv)
+        div.appendChild(emailDiv);
         div.appendChild(departmentDiv);
 
         const deptDiv = document
@@ -102,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // to redirect to new page
 function redirectToDepartment(department) {
-  
   window.location.href = `department.html?department=${department}`;
 }
 
