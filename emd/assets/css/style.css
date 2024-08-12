@@ -77,7 +77,9 @@ nav {
 .hidden {
     display: none !important;
 }
-
+.heading_emd span{
+color: #45a049;
+}
 #formContainer {
     /* margin: 2em auto; */
     /* max-width: 600px; */
@@ -296,8 +298,8 @@ select {
   position: absolute;
   top: -33px;
   /* left: 314px; */
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
   background-color: rgba(0, 0 , 0, 0.25);
   color: white;
   border-radius: 50%;
@@ -312,6 +314,10 @@ select {
 .profile-card .info {
     margin-bottom: 0.5em;
 }
+.profile-card:hover .actions{
+  display: flex ! important;
+}
+
 #departmentHeader{
     text-align: center;
     margin-top: 25px;
@@ -344,7 +350,7 @@ select {
 
 @media (min-width: 900px) {
     .profile-card {
-        width: calc(33.33% - 2em);
+      width: calc(20.33% - 2em);
     }
 }
 

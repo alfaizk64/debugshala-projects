@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const gender = employee.selectedGender.toLowerCase();
       imgDiv.innerHTML =
         gender === "male"
-          ? `<img class="avtarImg" src="/assets/images/male-avtar.jpg" alt="">`
-          : `<img class="avtarImg" src="/assets/images/avtar-female.jpg" alt="">`;
+          ? `<img class="avtarImg" src="https://avatar.iran.liara.run/public/boy?username=[${employee.name}]" alt="">`
+          : `<img class="avtarImg" src="https://avatar.iran.liara.run/public/girl?username=[${employee.name}]" alt="">`;
 
       // Create name element
       const nameDiv = document.createElement("div");
@@ -62,8 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Create actions container
       const actionsDiv = document.createElement("div");
-      actionsDiv.classList.add("actions");
-
+      actionsDiv.classList.add("actions" ,"hidden")
       // Create edit icon
       const editIcon = document.createElement("i");
       editIcon.classList.add("fas", "fa-edit");
@@ -84,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
             'input[name="gender"]:checked'
           );
 
+       
+             
           name.value = employee.name;
           salary.value = employee.salary;
           designation.value = employee.designation;
@@ -102,12 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const selectedGender = document.querySelector(
               'input[name="gender"]:checked'
             ).value;
-            console.log(name);
-            console.log(salary);
-            console.log(designation);
-            console.log(department);
-            console.log(email);
-            console.log(selectedGender);
+       
             if (name) {
               employee.name = name;
             }
@@ -130,11 +126,18 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("employees", JSON.stringify(employees));
 
             // Update displayed information on the card (optional)
+            if(selectedGender){
+              imgDiv.innerHTML =
+              gender === "male"
+                ? `<img class="avtarImg" src="/assets/images/male-avtar.jpg" alt="">`
+                : `<img class="avtarImg" src="/assets/images/avtar-female.jpg" alt="">`;
+      
+            }
             nameDiv.innerHTML = `<label>Name:</label> ${employee.name}`;
             salaryDiv.innerHTML = `<label>Salary:</label> ${employee.salary}`;
             designationDiv.innerHTML = `<label>Designation:</label> ${employee.designation}`;
             emailDiv.innerHTML = `<label>Email:</label> ${employee.email}`;
-            // genderDiv.innerHTML = `<label>Gender:</label> ${employee.selectedGender}`;
+            genderDiv.innerHTML = `<label>Gender:</label> ${employee.selectedGender}`;
             overlay.classList.remove("active");
             formContainer.classList.add("hidden");
           });
