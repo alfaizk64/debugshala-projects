@@ -15,21 +15,61 @@ document.addEventListener("DOMContentLoaded", function () {
   // form close
   let formClose = document.getElementById("formClose");
   formClose.addEventListener("click", () => {
+    employeeForm.reset()
     formContainer.classList.add("hidden");
     overlay.classList.remove("active");
     gridContainer.classList.remove("hidden");
   });
   employeeForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    const name = document.getElementById("name").value;
-    const salary = document.getElementById("salary").value;
-    const designation = document.getElementById("designation").value;
-    const department = document.getElementById("department").value;
-    const email = document.getElementById("email").value;
+     // Clear previous error messages
+  document.querySelectorAll('.error-message').forEach(msg => msg.textContent = '');
+
+   // Get form values
+    const name = document.getElementById("name").value.trim();
+    const salary = document.getElementById("salary").value.trim();
+    const designation = document.getElementById("designation").value.trim();
+    const department = document.getElementById("department").value.trim();
+    const email = document.getElementById("email").value.trim();
     const selectedGender = document.querySelector(
       'input[name="gender"]:checked'
     ).value;
 
+    // form Validation 
+    // Validation checks
+  let isValid = true;
+
+  if (name === "" || /\d/.test(name)) {
+    document.getElementById("nameError").textContent = "Name is required.";
+    isValid = false;
+  }
+
+  if (salary === "" || isNaN(salary) || salary <= 0) {
+    document.getElementById("salaryError").textContent = "Please enter a valid salary.";
+    isValid = false;
+  }
+
+  if (designation === "") {
+    document.getElementById("designationError").textContent = "Designation is required.";
+    isValid = false;
+  }
+
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (email === "" || !emailPattern.test(email)) {
+    document.getElementById("emailError").textContent = "Please enter a valid email address.";
+    isValid = false;
+  }
+
+  if (department === "") {
+    document.getElementById("departmentError").textContent = "Department is required.";
+    isValid = false;
+  }
+
+  if (!selectedGender) {
+    document.getElementById("genderError").textContent = "Please select a gender.";
+    isValid = false;
+  }
+  if(isValid){
     let employees = JSON.parse(localStorage.getItem("employees")) || {
       Sales: [],
       Technical: [],
@@ -47,10 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("employees", JSON.stringify(employees));
 
     // displayEmployees();
+    showAlert("Form submitted successfully!");
     employeeForm.reset();
     formContainer.classList.add("hidden");
     gridContainer.classList.remove("hidden");
     overlay.classList.remove("active");
+  }
   });
 
   function displayEmployees() {
@@ -126,3 +168,22 @@ closeBar.addEventListener("click", () => {
 sideMenu.addEventListener("mouseleave", () => {
   sideMenu.style.transform = "translateX(0rem)";
 });
+
+
+// cujstom alert box logic implement
+function showAlert(message) {
+  const alertBox = document.getElementById('customAlert');
+  const alertMessage = document.getElementById('alertMessage');
+  alertMessage.textContent = message;
+  alertBox.style.display = 'block';
+
+  // Automatically hide the alert box after 3 seconds
+  setTimeout(() => {
+    closeAlert();
+  }, 3000);
+}
+
+function closeAlert() {
+  const alertBox = document.getElementById('customAlert');
+  alertBox.style.display = 'none';
+}

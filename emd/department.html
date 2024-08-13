@@ -14,6 +14,15 @@
   />
 </head>
 <body>
+  <div class="sideMenu" id="sideMenu">
+    <i id="closeBar" class="fa-solid fa-xmark"></i>
+    <ul>
+      <li><a onclick="redirectToDepartment('Sales')">Sales Department</a></li>
+      <li><a onclick="redirectToDepartment('HR')">HR Department</a></li>
+      <li><a onclick="redirectToDepartment('Technical')">Technical Department</a></li>
+      <li><a onclick="redirectToDepartment('Telecalling')">Telecalling Department</a></li>
+    </ul>
+  </div>
     <nav>
         <div class="navSection">
                             <div class="department_logo">
@@ -25,8 +34,8 @@
                                 <li>Services</li>
                                 <li>Contact Us</li>
                             </ul>
-                            <div class="btn_group">
-                                <button id="registerBtn">
+                            <div class="btn_group" >
+                                <button id="registerBtn" style="display: none;">
                                     Register Here 
                                 </button>
                                 <i id="openBars" class="fa-solid fa-bars"></i>
@@ -85,7 +94,7 @@
            
         </div>
     </div>
-
+    <!-- <script src="/assets/js/script.js"></script> -->
     <script src="/assets/js/department.js"></script>
 </body>
 </html>
